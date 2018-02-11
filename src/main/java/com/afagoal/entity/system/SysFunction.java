@@ -2,6 +2,7 @@ package com.afagoal.entity.system;
 
 import com.afagoal.entity.IdEntity;
 
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
