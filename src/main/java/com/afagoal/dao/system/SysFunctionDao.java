@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Query;
 
@@ -34,9 +36,19 @@ public class SysFunctionDao extends BaseDao<SysFunction, QSysFunction> {
     }
 
     public int delete(String[] idArray) {
-        String sql = "update sys_function set state = 99 where id in (?1)";
+        List<Integer> ids = Arrays.stream(idArray)
+                .map(id -> Integer.valueOf(id))
+                .collect(Collectors.toList());
+        String sql = "delete from sys_function where id in (?1)";
         Query query = this.getEntityManager().createNativeQuery(sql);
-        query.setParameter(1,idArray);
+        query.setParameter(1,ids);
         return query.executeUpdate();
+    }
+
+    public SysFunction getById(Integer id){
+        List<BooleanExpression> booleanExpressions = new ArrayList();
+        booleanExpressions.add(this.getQEntity().id.eq(id));
+        SysFunction function = this.getEntity(booleanExpressions);
+        return function;
     }
 }

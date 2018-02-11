@@ -1,6 +1,6 @@
 package com.afagoal.entity.system;
 
-import com.afagoal.entity.UuidEntity;
+import com.afagoal.entity.IdEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -16,15 +16,17 @@ import lombok.Setter;
 @Table(name = "sys_function")
 @Getter
 @Setter
-public class SysFunction extends UuidEntity {
+public class SysFunction extends IdEntity {
 
     private String functionName;
 
     private String functionUrl;
 
-    private String functionParentId;
+    private Integer pid;
 
     private String introduce;
 
-    private Integer level;
+    private Integer type;
+
+    private String icon;
 }
