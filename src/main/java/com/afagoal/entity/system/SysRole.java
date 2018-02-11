@@ -1,5 +1,6 @@
 package com.afagoal.entity.system;
 
+import com.afagoal.entity.IdEntity;
 import com.afagoal.entity.UuidEntity;
 
 import java.util.List;
@@ -14,6 +15,8 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+import static com.afagoal.entity.QIdEntity.idEntity;
+
 /**
  * Created by BaoCai on 17/10/25.
  * Description:
@@ -22,7 +25,7 @@ import lombok.Setter;
 @Table(name = "sys_role")
 @Getter
 @Setter
-public class SysRole extends UuidEntity {
+public class SysRole extends IdEntity {
     private String roleName;
 
     private String introduce;
