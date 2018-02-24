@@ -25,15 +25,15 @@ public class SysRoleFunction implements Serializable {
 
     @Id
     @Column(name = "role_id")
-    private String roleId;
+    private Integer roleId;
     @Id
     @Column(name = "function_id")
-    private String functionId;
+    private Integer functionId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id",insertable = false,updatable = false)
     private SysRole role;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "function_id",insertable = false,updatable = false)
     private SysFunction function;
 }
