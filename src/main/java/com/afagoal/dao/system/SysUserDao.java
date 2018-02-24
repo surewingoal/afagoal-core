@@ -10,7 +10,11 @@ import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.persistence.Query;
 
 /**
  * Created by BaoCai on 17/10/25.
@@ -33,4 +37,17 @@ public class SysUserDao extends BaseDao<SysUser,QSysUser> {
         return users.get(0);
     }
 
+    public SysUser getById(Integer id) {
+        List<BooleanExpression> expressionList = new ArrayList();
+        expressionList.add(this.getQEntity().id.eq(id));
+        expressionList.add(this.getQEntity().state.eq(BaseStateConstant.DEFAULT_STATE));
+        return this.getEntity(expressionList);
+    }
+
+    public int delete(List<Integer> idList) {
+        String sql = "update sys_user set state = 99 where id in (?1)";
+        Query query = this.getEntityManager().createNativeQuery(sql);
+        query.setParameter(1,idList);
+        return query.executeUpdate();
+    }
 }
