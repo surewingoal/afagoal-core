@@ -25,16 +25,6 @@ public class SysFunctionDao extends BaseDao<SysFunction, QSysFunction> {
         this.setQEntity(QSysFunction.sysFunction);
     }
 
-    public SysFunction getFunctionByFunctionUrl(String functionUrl){
-        List<BooleanExpression> expressionList = new ArrayList();
-        expressionList.add(this.getQEntity().functionUrl.eq(functionUrl));
-        List<SysFunction> functions = this.getEntities(expressionList,null);
-        if(CollectionUtils.isEmpty(functions)){
-            return null;
-        }
-        return functions.get(0);
-    }
-
     public int delete(String[] idArray) {
         List<Integer> ids = Arrays.stream(idArray)
                 .map(id -> Integer.valueOf(id))
