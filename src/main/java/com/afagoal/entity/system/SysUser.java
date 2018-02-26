@@ -57,7 +57,7 @@ public class SysUser extends IdEntity{
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "sys_user_role",
-            joinColumns = {@JoinColumn(name = "sys_user_id")},
+            joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id")}
     )
     private List<SysRole> roles;

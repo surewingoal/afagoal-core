@@ -24,14 +24,14 @@ import lombok.Setter;
 public class SysUserRole implements Serializable {
     @Id
     @Column(name = "role_id")
-    private String roleId;
+    private Integer roleId;
 
     @Id
-    @Column(name = "sys_user_id")
-    private String UserId;
+    @Column(name = "user_id")
+    private Integer userId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sys_user_id",insertable = false,updatable = false)
+    @JoinColumn(name = "user_id",insertable = false,updatable = false)
     private SysUser user;
 
     @ManyToOne(fetch = FetchType.LAZY)
