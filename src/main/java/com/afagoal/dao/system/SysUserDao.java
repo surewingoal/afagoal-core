@@ -1,18 +1,16 @@
 package com.afagoal.dao.system;
 
+import com.afagoal.constant.BaseStateConstant;
 import com.afagoal.dao.BaseDao;
 import com.afagoal.entity.system.QSysUser;
 import com.afagoal.entity.system.SysUser;
 import com.querydsl.core.types.dsl.BooleanExpression;
-import com.surewingoal.constant.BaseStateConstant;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.persistence.Query;
 

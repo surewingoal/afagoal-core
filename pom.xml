@@ -15,7 +15,22 @@
     </description>
 
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <afagoal.common.version>1.0-SNAPSHOT</afagoal.common.version>
+    </properties>
+
+
     <dependencies>
+
+        <dependency>
+            <groupId>com.afagoal</groupId>
+            <artifactId>common</artifactId>
+            <version>${afagoal.common.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
@@ -57,10 +72,11 @@
             <version>4.1.3</version>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
-            <groupId>com.surewingoal</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
         </dependency>
     </dependencies>
 
