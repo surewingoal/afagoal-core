@@ -3,6 +3,7 @@ package com.afagoal.entity.system;
 import com.afagoal.entity.IdEntity;
 import com.afagoal.entity.UuidEntity;
 
+import org.hibernate.annotations.ColumnTransformer;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -27,7 +28,7 @@ import lombok.Setter;
 @Table(name = "sys_user")
 @Getter
 @Setter
-public class SysUser extends IdEntity{
+public class SysUser extends IdEntity {
     private String userName;
 
     private String nickName;
@@ -42,6 +43,10 @@ public class SysUser extends IdEntity{
 
     private String email;
 
+    @ColumnTransformer(
+            read = "AES_DECRYPT(FROM_BASE64(mobile),'jb9o8i$#3e4f5nlb')",
+            write = "TO_BASE64(AES_ENCRYPT(IFNULL(?, 'null'),'jb9o8i$#3e4f5nlb'))"
+    )
     private String mobile;
 
     @Column(name = "dept_id")
@@ -51,7 +56,7 @@ public class SysUser extends IdEntity{
     private Integer userType;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "dept_id",insertable = false,updatable = false)
+    @JoinColumn(name = "dept_id", insertable = false, updatable = false)
     private SysDept dept;
 
     @ManyToMany(fetch = FetchType.LAZY)
