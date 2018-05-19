@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Version;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -37,6 +38,9 @@ public class UuidEntity implements Serializable {
     private String updatedBy;
 
     private byte state;
+
+    @Version
+    private Byte version;
 
     @PrePersist
     public void prePersist() {
