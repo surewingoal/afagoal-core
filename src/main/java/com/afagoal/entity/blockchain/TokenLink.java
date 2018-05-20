@@ -35,7 +35,6 @@ public class TokenLink extends UuidEntity {
 
     private String linkValue;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bc_token_id",updatable = false,insertable = false)
     private Token token;

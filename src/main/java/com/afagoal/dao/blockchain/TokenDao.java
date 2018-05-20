@@ -33,7 +33,6 @@ public class TokenDao extends BaseDao<Token,QToken> {
 
         query.select(QEntity)
                 .from(QEntity)
-                .leftJoin(QEntity.tokenLinks).fetchJoin()
                 .where(booleanExpressions.toArray(new BooleanExpression[booleanExpressions.size()]));
 
         if (!CollectionUtils.isEmpty(orders)) {
