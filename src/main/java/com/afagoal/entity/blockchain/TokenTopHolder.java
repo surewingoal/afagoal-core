@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -25,10 +26,13 @@ import lombok.Setter;
 @Setter
 public class TokenTopHolder extends UuidEntity {
 
+    @Column(name = "bc_token_name")
     private String tokenName;
 
+    @Column(name = "bc_token_code")
     private String tokenCode;
 
+    @Column(name = "bc_token_id")
     private String tokenId;
 
     private String address;

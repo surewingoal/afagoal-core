@@ -1,6 +1,6 @@
 package com.afagoal.dao.system;
 
-import com.afagoal.constant.BaseStateConstant;
+import com.afagoal.constant.BaseConstant;
 import com.afagoal.dao.BaseDao;
 import com.afagoal.entity.system.QSysUser;
 import com.afagoal.entity.system.SysUser;
@@ -27,7 +27,7 @@ public class SysUserDao extends BaseDao<SysUser,QSysUser> {
     public SysUser getUserByName(String username){
         List<BooleanExpression> expressionList = new ArrayList();
         expressionList.add(this.getQEntity().userName.eq(username));
-        expressionList.add(this.getQEntity().state.eq(BaseStateConstant.DEFAULT_STATE));
+        expressionList.add(this.getQEntity().state.eq(BaseConstant.DEFAULT_STATE));
         List<SysUser> users = this.getEntities(expressionList,null);
         if(CollectionUtils.isEmpty(users)){
             return null;
@@ -38,7 +38,7 @@ public class SysUserDao extends BaseDao<SysUser,QSysUser> {
     public SysUser getById(Integer id) {
         List<BooleanExpression> expressionList = new ArrayList();
         expressionList.add(this.getQEntity().id.eq(id));
-        expressionList.add(this.getQEntity().state.eq(BaseStateConstant.DEFAULT_STATE));
+        expressionList.add(this.getQEntity().state.eq(BaseConstant.DEFAULT_STATE));
         return this.getEntity(expressionList);
     }
 

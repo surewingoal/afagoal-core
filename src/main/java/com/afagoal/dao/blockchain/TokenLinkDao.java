@@ -1,6 +1,6 @@
 package com.afagoal.dao.blockchain;
 
-import com.afagoal.constant.BaseStateConstant;
+import com.afagoal.constant.BaseConstant;
 import com.afagoal.dao.BaseDao;
 import com.afagoal.entity.blockchain.QTokenLink;
 import com.afagoal.entity.blockchain.TokenLink;
@@ -24,7 +24,7 @@ public class TokenLinkDao extends BaseDao<TokenLink , QTokenLink> {
 
     public Collection<TokenLink> getTokenLinks(String tokenId){
         List<BooleanExpression> list = new ArrayList();
-        list.add(this.getQEntity().state.ne(BaseStateConstant.DELETE_STATE));
+        list.add(this.getQEntity().state.ne(BaseConstant.DELETE_STATE));
         list.add(this.getQEntity().tokenId.eq(tokenId));
         return this.getEntities(list,null);
     }
