@@ -5,14 +5,12 @@ import com.afagoal.dao.BaseDao;
 import com.afagoal.entity.system.QSysUser;
 import com.afagoal.entity.system.SysUser;
 import com.querydsl.core.types.dsl.BooleanExpression;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
+import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Query;
 
 /**
  * Created by BaoCai on 17/10/25.
