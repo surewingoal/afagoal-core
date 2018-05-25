@@ -28,7 +28,7 @@ public class SysFunctionDao extends BaseDao<SysFunction, QSysFunction> {
         List<Integer> ids = Arrays.stream(idArray)
                 .map(id -> Integer.valueOf(id))
                 .collect(Collectors.toList());
-        String sql = "delete from sys_function where id in (?1)";
+        String sql = "update sys_function set state = 99 where id in (?1)";
         Query query = this.getEntityManager().createNativeQuery(sql);
         query.setParameter(1,ids);
         return query.executeUpdate();
