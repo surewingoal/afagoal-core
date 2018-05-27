@@ -32,12 +32,15 @@ public class TokenDetail extends UuidEntity {
     @Column(name = "bc_token_id")
     private String tokenId;
 
-    @Column(name = "price")
-    private BigDecimal todayPrice;
+    private Long holders;
+
+    private Long transfers;
+
+    private BigDecimal transfersToken;
+
+    private BigDecimal transfersUsd;
 
     private BigDecimal priceChange;
-
-    private Long volume;
 
     private LocalDateTime statisticTime;
 
