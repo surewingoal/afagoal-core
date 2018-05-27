@@ -11,6 +11,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -30,33 +31,15 @@ public class Token extends UuidEntity {
 
     private String tokenCode;
 
-    private Long totalSupply;
-
-    private Long holders;
-
-    private Long transfers;
-
     private Byte decimals;
 
-    private String contract;
-
     private String country;
-
-    private String overview;
-
-    private BigDecimal highestPrice;
-
-    private BigDecimal lowestPrice;
-
-    private Long highestTransaction;
-
-    private Long lowestTransaction;
 
     private LocalDate icoStartDate;
 
     private LocalDate icoEndDate;
 
-    private BigDecimal icoPrice;
+    private String icoPrice;
 
     private BigDecimal totalCap;
 
@@ -64,8 +47,12 @@ public class Token extends UuidEntity {
 
     private Byte weight;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "token")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "token")
     @Where(clause = "state <> 99")
-    Collection<TokenLink> tokenLinks;
+    private Collection<TokenLink> tokenLinks;
+
+    @OneToOne(fetch = FetchType.LAZY,mappedBy = "token")
+    @Where(clause = "state <> 99")
+    private TokenExt tokenExt;
 
 }
