@@ -40,7 +40,7 @@ public class TokenExt extends UuidEntity {
 
     private Long lowestTransaction;
 
-    private Long totalSupply;
+    private BigDecimal totalSupply;
 
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)

@@ -50,7 +50,8 @@ public class TokenDao extends BaseDao<Token,QToken> {
     }
 
     public List<TokenSimpleDto> simpleTokens() {
-        String sql = "select id,token_code from bc_token where state <> 99 ; ";
+        //TODO cache
+        String sql = "select id,token_code,weight from bc_token where state <> 99 order by weight desc; ";
         Query query = this.getEntityManager().createNativeQuery(sql);
         List<Object[]> tokens = query.getResultList();
         List<TokenSimpleDto> dtos = tokens.stream()
