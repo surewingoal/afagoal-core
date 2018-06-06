@@ -45,7 +45,7 @@ public class Token extends UuidEntity {
 
     private BigDecimal totalRaised;
 
-    private Byte weight;
+    private Integer weight;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "token")
     @Where(clause = "state <> 99")
