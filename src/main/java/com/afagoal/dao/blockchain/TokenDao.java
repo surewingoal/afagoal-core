@@ -52,7 +52,7 @@ public class TokenDao extends BaseDao<Token,QToken> {
     }
 
     public List<TokenSimpleDto> simpleTokens() {
-        String sql = "select t.id as id,t.token_name as tokenName from bc_token t " +
+        String sql = "select t.id as id,t.token_code as tokenName from bc_token t " +
                 "left join bc_token_ext e " +
                 "on t.id = e.bc_token_id " +
                 "order by e.transfers desc";

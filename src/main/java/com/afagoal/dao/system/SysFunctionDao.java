@@ -51,7 +51,8 @@ public class SysFunctionDao extends BaseDao<SysFunction, QSysFunction> {
                 "on r.id = ur.role_id\n" +
                 "left join sys_user u\n" +
                 "on u.id = ur.user_id\n" +
-                "where u.id = (?1)";
+                "where u.id = (?1)\n" +
+                "and f.state <> 99";
         Query query = this.getEntityManager().createNativeQuery(sql,SysFunction.class);
         query.setParameter(1,userId);
         return query.getResultList();
