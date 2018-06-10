@@ -130,4 +130,5 @@ public abstract class BaseDao<Entity, QEntity extends EntityPathBase<Entity>> {
     }
 
 
+
 }
