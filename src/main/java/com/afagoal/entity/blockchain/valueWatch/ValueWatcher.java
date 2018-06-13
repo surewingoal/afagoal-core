@@ -41,4 +41,6 @@ public class ValueWatcher extends UuidEntity {
     private String watchConditionId;
 
     private String remindInfo;
+
+    private BigDecimal realValueChange;
 }
