@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -66,4 +67,8 @@ public class SysUser extends IdEntity {
             inverseJoinColumns = {@JoinColumn(name = "role_id")}
     )
     private List<SysRole> roles;
+
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
+    private SysUserExt sysUserExt;
+
 }
