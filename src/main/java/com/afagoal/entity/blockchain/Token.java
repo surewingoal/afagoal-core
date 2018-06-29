@@ -47,11 +47,11 @@ public class Token extends UuidEntity {
 
     private Integer weight;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "token")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tokenId")
     @Where(clause = "state <> 99")
     private Collection<TokenLink> tokenLinks;
 
-    @OneToOne(fetch = FetchType.LAZY,mappedBy = "token")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "token")
     @Where(clause = "state <> 99")
     private TokenExt tokenExt;
 

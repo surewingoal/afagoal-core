@@ -24,21 +24,22 @@ import javax.persistence.Query;
  * Description:
  */
 @Component
-public class TokenDao extends BaseDao<Token,QToken> {
+public class TokenDao extends BaseDao<Token, QToken> {
 
-    public TokenDao(){
+    public TokenDao() {
         this.setQEntity(QToken.token);
     }
 
     public List<Token> getTokens(List<BooleanExpression> booleanExpressions,
                                  List<OrderSpecifier> orders,
-                                 Pageable pageable){
+                                 Pageable pageable) {
         booleanExpressions = this.rectifyExpressions(booleanExpressions);
 
         JPAQuery<Token> query = new JPAQuery<>(this.getEntityManager());
 
-        query.select(QEntity)
-                .from(QEntity)
+        query.select(this.getQEntity())
+                .from(this.getQEntity())
+                .leftJoin(this.getQEntity().tokenExt).fetchJoin()
                 .where(booleanExpressions.toArray(new BooleanExpression[booleanExpressions.size()]));
 
         if (!CollectionUtils.isEmpty(orders)) {
